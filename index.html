@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="    background-color: black;
+">
+
+    <div class="col-lg-8 mx-auto p-4 py-md-5">
+        <main>
+          <div class="row g-5">
+            <div class="col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">Formulario de registro</div>
+                    <div class="card-body">
+                        <form id="form">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Cedula</label>
+                                <div class="input-group mb-0">
+                                    <input type="number" class="form-control" id="cedula">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Nombre</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="nombre" onchange="javascript:this.value=this.value.toUpperCase()">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Apellido</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="apellido" onchange="javascript:this.value=this.value.toUpperCase()">
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Edad</label>
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" id="edad">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Dirección</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="direccion">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Celular</label>
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" id="celular">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">País</label>
+                                <div class="input-group mb-3">
+                                    <select class="form-control" id="pais">
+                                        <option value="def">---------</option>
+                                        <option value="arg">Argentina</option>
+                                        <option value="bra">Brazil</option>
+                                        <option value="col">Colombia</option>
+                                        <option value="pana">Panamá</option>
+                                        <option value="ecua">Ecuador</option>
+                                        <option value="vene">Venezuela</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Ciudad</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="ciudad">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Correo Electrónico</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="mail" class="form-control" id="correo" onchange="javascript:this.value=this.value.toLowerCase()">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Genero</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="genero" id="genero1" value="Masculino">
+                                    <label class="form-check-label" for="genero1">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="genero" id="genero2" value="Femenino">
+                                    <label class="form-check-label" for="genero2">Femenino</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 mb-3 pt-4">
+                                <button type="button" class="btn btn-danger" onclick="Guardar()">Guardar <i class="bi bi-check2-circle"></i></button>
+                                <button type="button" class="btn btn-danger" onclick="Listar()">Listar <i class="bi bi-arrow-repeat"></i></button>
+
+                             
+                            </div>
+                        </div>
+                        </form>
+                
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-danger text-white"><i class="bi bi-list-check me-2"></i>Detalles</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped table-home">
+                                <thead>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">cedula</th>
+                                      <th scope="col">nombre</th>
+                                      <th scope="col">genero</th>
+                                      <th scope="col">edad</th>
+                                      <th scope="col">direccion</th>
+                                      <th scope="col">celular</th>
+                                      <th scope="col">pais</th>
+                                      <th scope="col">ciudad</th>
+                                      <th scope="col">mail</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="data">
+                                    <tr>
+                                        <td colspan="10" class="text-center">No hay datos registrados</td>
+                                    </tr>
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </main>
+      </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script> 
+    <script src="js/script.js"></script>
+  <script>
+
+Listar();
+  </script>  
+</body>
+</html>
